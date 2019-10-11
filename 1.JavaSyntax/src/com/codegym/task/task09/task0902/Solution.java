@@ -1,5 +1,5 @@
 package com.codegym.task.task09.task0902;
-
+import java.lang.Thread;
 /* 
 Stack trace revisited
 
@@ -12,25 +12,35 @@ public class Solution {
 
     public static String method1() {
         method2();
-        return "";
+        //write your code here
+        String s = Thread.currentThread().getStackTrace()[2].getMethodName();
+        return s;
     }
 
     public static String method2() {
         method3();
-        return "";
+        //write your code here
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
+
     }
 
     public static String method3() {
         method4();
-        return "";
+        //write your code here
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
+
     }
 
     public static String method4() {
         method5();
-        return "";
+        //write your code here
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
+
     }
 
     public static String method5() {
-        return "";
+        //write your code here
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
+
     }
 }
