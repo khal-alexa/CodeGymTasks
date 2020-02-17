@@ -28,8 +28,31 @@ public class Solution {
     }
 
     public static void sort(String[] array) {
-        // write your code here
+        boolean isSorted = false;
+        while (isSorted == false) {
+            isSorted = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                for (int j = i + 1; j < array.length; j++) {
+                    if (isNumber(array[i]) && isNumber(array[j])) {
+                        if (Integer.parseInt(array[i]) < Integer.parseInt(array[j])) {
+                            isSorted = false;
+                            String s = array[i];
+                            array[i] = array[j];
+                            array[j] = s;
+                        }
+                    } else if (!isNumber(array[i]) && !isNumber(array[j])) {
+                        if (isGreaterThan(array[i], array[j])) {
+                            isSorted = false;
+                            String s = array[i];
+                            array[i] = array[j];
+                            array[j] = s;
+                        }
+                    }
+                }
+            }
+        }
     }
+
 
     // String comparison method: 'a' is greater than 'b'
     public static boolean isGreaterThan(String a, String b) {

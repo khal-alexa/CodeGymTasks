@@ -10,7 +10,7 @@ OOP: Fix inheritance problems
 
 public class Solution {
     public static interface LivingPart {
-        boolean containsBones();
+        Object containsBones();
     }
 
     public static class BodyPart implements LivingPart {
@@ -20,12 +20,12 @@ public class Solution {
             this.name = name;
         }
 
-        public boolean containsBones() {
-            return true;
+        public Object containsBones() {
+            return "Yes";
         }
 
         public String toString() {
-            return containsBones() ? name + " contains bones" : name + " does not contain bones";
+            return containsBones().equals("Yes") ? name + " contains bones" : name + " does not contain bones";
         }
     }
 
@@ -37,8 +37,13 @@ public class Solution {
             this.isArtificial = isArtificial;
         }
 
-        public boolean containsBones() {
-            return super.containsBones() && !isArtificial;
+        public Object containsBones() {
+            if (super.containsBones().equals("Yes") && !isArtificial) {
+                return "Yes";
+            } else {
+                return "No";
+            }
+
         }
     }
 
